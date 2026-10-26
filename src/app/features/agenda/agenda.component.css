@@ -1,0 +1,107 @@
+/* Sub-header */
+.agenda__subheader {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1.25rem;
+}
+.agenda__subheader-inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.agenda__date-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-1);
+  text-transform: capitalize;
+}
+.agenda__prog-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.agenda__prog-label {
+  font-size: 0.75rem;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+.agenda__prog-label strong { color: var(--brand-600); }
+.agenda__prog-bar {
+  width: 7rem;
+  height: 0.3125rem;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.agenda__prog-fill {
+  height: 100%;
+  background: var(--brand-600);
+  border-radius: 999px;
+  transition: width 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+/* Main layout */
+.agenda__main {
+  padding: 1rem 1.25rem 3rem;
+}
+.agenda__layout {
+  max-width: 72rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 22rem;
+  gap: 1.25rem;
+  align-items: start;
+}
+.agenda__col-main {
+  min-width: 0;
+}
+.agenda__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  position: sticky;
+  top: 5.5rem; /* below header */
+  max-height: calc(100vh - 6rem);
+  overflow-y: auto;
+  padding-bottom: 1rem;
+  scrollbar-width: none;
+}
+.agenda__sidebar::-webkit-scrollbar { display: none; }
+
+/* Responsive: tablet */
+@media (max-width: 1024px) {
+  .agenda__layout {
+    grid-template-columns: 1fr 18rem;
+  }
+}
+
+/* Responsive: mobile → stack vertically */
+@media (max-width: 768px) {
+  .agenda__main {
+    padding: 0.875rem 0.875rem 4rem;
+  }
+  .agenda__layout {
+    grid-template-columns: 1fr;
+  }
+  .agenda__sidebar {
+    position: static;
+    max-height: none;
+    overflow-y: visible;
+  }
+  .agenda__subheader {
+    padding: 0.5rem 0.875rem;
+  }
+  .agenda__prog-bar {
+    width: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .agenda__date-label {
+    font-size: 0.75rem;
+  }
+}

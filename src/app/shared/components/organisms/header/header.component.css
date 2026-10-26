@@ -1,0 +1,123 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 6px rgb(0 0 0 / .06);
+}
+
+.header__inner {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Brand */
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--brand-600);
+  color: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(var(--brand-rgb), 0.35);
+}
+.header__title {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text-1);
+  line-height: 1.2;
+  margin: 0;
+}
+.header__subtitle {
+  font-size: 0.7rem;
+  color: var(--text-3);
+  margin: 0;
+}
+
+/* Center: DateNavigator takes flexible space */
+app-date-navigator {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+/* Actions */
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.header__action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: none;
+  background: transparent;
+  color: var(--text-2);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.header__action-btn:hover {
+  background: var(--surface-2);
+  color: var(--text-1);
+}
+.header__sync-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--brand-50);
+  color: var(--brand-700);
+  border: 1px solid var(--brand-200);
+  border-radius: 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.header__sync-btn:hover {
+  background: var(--brand-100);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .header__inner {
+    padding: 0.625rem 1rem;
+    gap: 0.625rem;
+  }
+  .header__sync-label {
+    display: none;
+  }
+  .header__sync-btn {
+    padding: 0.5rem;
+  }
+  app-date-navigator {
+    order: 3;
+    flex-basis: 100%;
+    justify-content: stretch;
+  }
+  app-date-navigator ::ng-deep .date-nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
